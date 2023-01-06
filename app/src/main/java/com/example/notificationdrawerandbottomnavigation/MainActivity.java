@@ -1,13 +1,18 @@
 package com.example.notificationdrawerandbottomnavigation;
 
 
+import android.content.ClipData;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -44,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        //so that the blankFragmentOne will not load whenever a run time configuration change occurs
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
+
+        }
+        navigationView.setCheckedItem(R.id.nav_account);
 
         // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,10 +62,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
+    public void closeDrawer() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
     }
 
     // override the onOptionsItemSelected()
@@ -79,30 +90,84 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
+                FragmentManager fragmentOneManager = getSupportFragmentManager();
+                FragmentTransaction fragmentOneTransaction = fragmentOneManager.beginTransaction();
+                fragmentOneTransaction.replace(R.id.main_fragment, blankFragmentOne);
+                fragmentOneTransaction.addToBackStack(null);
+                fragmentOneTransaction.commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
+
                 return true;
 
 
             case R.id.item2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).commit();
+                FragmentManager fragmentTwoManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTwoTransaction = fragmentTwoManager.beginTransaction();
+                fragmentTwoTransaction.replace(R.id.main_fragment, blankFragmentTwo);
+                fragmentTwoTransaction.addToBackStack(null);
+                fragmentTwoTransaction.commit();
+
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).commit();
                 return true;
 
             case R.id.item3:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).commit();
+                //   getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).commit();
+                FragmentManager fragmentThreeManager = getSupportFragmentManager();
+                FragmentTransaction fragmentThreeTransaction = fragmentThreeManager.beginTransaction();
+                fragmentThreeTransaction.replace(R.id.main_fragment, blankFragmentThree);
+                fragmentThreeTransaction.addToBackStack(null);
+                fragmentThreeTransaction.commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).commit();
+
                 return true;
         }
 
         switch (item.getItemId()) {
             case R.id.nav_account:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
+                FragmentManager fragmentOneManager = getSupportFragmentManager();
+                FragmentTransaction fragmentOneTransaction = fragmentOneManager.beginTransaction();
+                fragmentOneTransaction.replace(R.id.main_fragment, blankFragmentOne);
+                fragmentOneTransaction.addToBackStack(null);
+                fragmentOneTransaction.commit();
+                // to close drawer when this item is clicked
+                closeDrawer();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentOne).commit();
                 return true;
 
             case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).commit();
+                FragmentManager fragmentTwoManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTwoTransaction = fragmentTwoManager.beginTransaction();
+                fragmentTwoTransaction.replace(R.id.main_fragment, blankFragmentTwo);
+                fragmentTwoTransaction.addToBackStack(null);
+                fragmentTwoTransaction.commit();
+                // to close drawer when this item is clicked
+                closeDrawer();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentTwo).commit();
                 return true;
 
             case R.id.nav_logout:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).commit();
+
+                FragmentManager fragmentThreeManager = getSupportFragmentManager();
+                FragmentTransaction fragmentThreeTransaction = fragmentThreeManager.beginTransaction();
+                fragmentThreeTransaction.replace(R.id.main_fragment, blankFragmentThree);
+                fragmentThreeTransaction.addToBackStack(null);
+                fragmentThreeTransaction.commit();
+                // to close drawer when this item is clicked
+                closeDrawer();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).addToBackStack(null);
+//                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment, blankFragmentThree).commit();
                 return true;
 
         }
