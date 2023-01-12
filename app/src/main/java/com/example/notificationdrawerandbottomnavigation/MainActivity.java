@@ -19,7 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
-    public DrawerLayout drawerLayout;
+    public  static DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public NavigationView navigationView;
     public BottomNavigationView bottomNavigationView;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         // drawer layout instance to toggle the menu icon to open
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+
+
 
     public void closeDrawer() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
