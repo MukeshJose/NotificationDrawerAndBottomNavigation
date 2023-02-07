@@ -14,47 +14,53 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-
-        <FrameLayout
-            android:id="@+id/sample_fragment"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottom_navigation_view_sample"
-            android:background="@color/purple_200">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="HELLO" />
-            </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:text="HELLO"
+            android:gravity="center"/>
 
 
-        </FrameLayout>
+        <!--        <FrameLayout-->
+        <!--            android:id="@+id/sample_fragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_above="@id/bottom_navigation_view_sample"-->
+        <!--            android:background="@color/purple_200">-->
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view_sample"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            app:itemIconTint="@drawable/bottom_navigation_selector"
-            app:itemTextColor="@drawable/bottom_navigation_selector"
-            app:labelVisibilityMode="selected"
-            app:menu="@menu/new_menu" />
+        <!--            <RelativeLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:gravity="center">-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:text="HELLO" />-->
+        <!--            </RelativeLayout>-->
+
+
+        <!--        </FrameLayout>-->
+
+        <!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--            android:id="@+id/bottom_navigation_view_sample"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:layout_alignParentBottom="true"-->
+        <!--            app:itemIconTint="@drawable/bottom_navigation_selector"-->
+        <!--            app:itemTextColor="@drawable/bottom_navigation_selector"-->
+        <!--            app:labelVisibilityMode="selected"-->
+        <!--            app:menu="@menu/new_menu" />-->
     </RelativeLayout>
 
     <!-- this the navigation view which draws and shows the navigation drawer -->
     <!-- include the menu created in the menu folder -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_sample"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/navigation_drawer_menu" />
+    <!--    <com.google.android.material.navigation.NavigationView-->
+    <!--        android:id="@+id/nav_view_sample"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        app:menu="@menu/navigation_drawer_menu" />-->
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
